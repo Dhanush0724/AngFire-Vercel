@@ -8,31 +8,39 @@ import { AuthService } from '../../shared/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  email : string = '';
-  password : string = '';
+  email: string = '';
+  password: string = '';
+  showPassword: boolean = false; 
 
-  constructor(private auth : AuthService) { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  register() {
-
-    if(this.email == '') {
+  async register() {
+    if (this.email === '') {
       alert('Please enter email');
       return;
     }
 
-    if(this.password == '') {
+    if (this.password === '') {
       alert('Please enter password');
       return;
     }
 
-    this.auth.register(this.email,this.password);
-    
-    this.email = '';
-    this.password = '';
-
+    try {
+      await this.auth.register(this.email, this.password);
+      
+      this.email = '';
+      this.password = '';
+      alert('Registration successful');
+    } catch (error: any) {
+      console.error('Registration error:', error);
+      alert(`Registration failed: ${error.message || 'Please try again.'}`);
+    }
   }
 
+  togglePassword() {
+    this.showPassword = !this.showPassword; // Toggle the visibility
+  }
 }

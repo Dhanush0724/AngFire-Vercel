@@ -11,7 +11,7 @@ export class DashboardComponent {
   constructor(private auth : AuthService) { }
 
 
-  register() {
+  logout() {
     this.auth.logout()
   }
 

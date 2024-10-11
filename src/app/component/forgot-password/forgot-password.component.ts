@@ -41,7 +41,11 @@ export class ForgotPasswordComponent {
     constructor(private auth: AuthService) {}
 
     forgotPassword() {
-        if (this.isChecked && this.email) {
+        if (!this.isChecked) {
+            alert("Please agree to the terms before submitting.");
+        } else if (!this.validateEmail(this.email)) {
+            alert("Please enter a valid email address.");
+        } else if (this.email) {
             this.auth.forgotPassword(this.email)
                 .then(() => {
                     alert('Password reset link sent to your email!');
@@ -50,12 +54,17 @@ export class ForgotPasswordComponent {
                 .catch((error: { message: string }) => {
                     alert('Error sending password reset link: ' + error.message);
                 });
-        } 
-        if (!this.isChecked) {
-          alert("voga lety");
-        }
-        else {
-            alert("Please agree to the terms before submitting.");
+        } else {
+            alert("Please enter your email address.");
         }
     }
+    
+    // Helper method to validate email format
+    validateEmail(email: string): boolean {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+    }
+    
+    
+    
 }

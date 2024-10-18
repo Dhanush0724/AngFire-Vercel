@@ -1,3 +1,161 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+html, body {
+    height: 100%; /* Ensure the body takes up the full height */
+    margin: 0; 
+    /* Remove default margin */
+    overflow: hidden;
+  }
+  
+  .parent-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh;
+     /* Full viewport height */
+    padding-bottom: 1000px;
+  }
+  
+  .chat-card {
+    /* width: 300px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;  */
+    position: fixed;        /* Fix the chat card's position */
+  top: 50%;              /* Center vertically */
+  left: 50%;             /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position to perfectly center */
+  width: 300px;          /* Set width of the chat card */
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Other styles remain unchanged */
+  .chat-header {
+    padding: 10px;
+    background-color: rgb(0, 255, 200);
+    display: flex;
+    align-items: center;
+    color: black;
+  }
+  
+  .chat-header .h2 {
+    font-size: 16px;
+    color: #bd1414;
+  }
+  
+  .chat-body {
+    padding: 20px;
+    max-height: 200px; /* Set a maximum height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Hide horizontal scrolling */
+  }
+  
+  .message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .incoming {
+    background-color: #e1e1e1;
+  }
+  
+  .outgoing {
+    background-color: #f2f2f2;
+    text-align: right;
+  }
+  
+  .message p {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+  }
+  
+  .chat-footer {
+    padding: 10px;
+    background-color: #f2f2f2;
+    display: flex;
+  }
+  
+  .chat-footer input[type="text"] {
+    flex-grow: 1;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+  }
+  
+  .chat-footer button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #4285f4;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .chat-footer button:hover {
+    background-color: #0f9d58;
+  }
+  
+  @keyframes chatAnimation {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .chat-card .message {
+    animation: chatAnimation 0.3s ease-in-out;
+    animation-fill-mode: both;
+    animation-delay: 0.1s;
+  }
+  
+  .chat-card .message:nth-child(even) {
+    animation-delay: 0.2s;
+  }
+  
+  .chat-card .message:nth-child(odd) {
+    animation-delay: 0.3s;
+  }
+  
+  .loading-spinner {
+    text-align: center;
+    color: #4285f4; /* Customize the color */
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+
+
+
+
+
+  .logout-container {
+    position: absolute; /* Position it absolutely */
+    top: 10px; /* Adjust the distance from the top */
+    right: 10px; /* Adjust the distance from the right */
+  }
+  
+  .logout-button {
+    background-color: #4285f4; /* Button color */
+    color: white; /* Text color */
+    font-weight: bold; /* Text weight */
+    padding: 6px 12px; /* Padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  .logout-button:hover {
+    background-color: #0f9d58; /* Color change on hover */
+  }
+  

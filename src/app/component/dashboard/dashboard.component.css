@@ -29,7 +29,16 @@ html, body {
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
+  transition: border-color 0.3s ease;
+  border: 5px solid transparent;
+  
+}
+.chat-card:hover {
+  
+  border-color:  rgba(152, 237, 78, 0.3);/* Changes border color on hover */
+}
+
+  
   
   /* Other styles remain unchanged */
   .chat-header {
@@ -140,7 +149,7 @@ html, body {
 
   .logout-container {
     position: absolute; /* Position it absolutely */
-    top: 10px; /* Adjust the distance from the top */
+    top: 65px; /* Adjust the distance from the top */
     right: 10px; /* Adjust the distance from the right */
   }
   
@@ -159,3 +168,6 @@ html, body {
     background-color: #0f9d58; /* Color change on hover */
   }
   
+
+
+
